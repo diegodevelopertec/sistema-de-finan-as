@@ -10,10 +10,17 @@ export const  getCurrentMonth=()=>{
 
 export const FilterListByMonth=(list:Item[],date:string):Item[]=>{
 
-        let newList:Item[]=[]
-    let [year,minth]= date.split('-')
+    let newList:Item[]=[]
+    let [year,month]= date.split('-')
 
-
+    for(let i in list){
+        if(
+            list[i].date.getFullYear() === parseInt(year) &&
+            (list[i].date.getMonth()+1) ===parseInt(month)
+        ){
+            newList.push(list[i])
+        }
+    }
 
 
 
